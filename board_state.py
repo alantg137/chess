@@ -10,6 +10,8 @@ KING = 10
 class BoardState():
     def get(self,col,row):
         return self.state[(row-1) * 8 + col - 1]
+    def set(self,col,row,value):
+        self.state[(row-1) * 8 + col - 1] = value
     def __init__(self):
         self.state = [(EMPTY,EMPTY)] * 64
         self.state[0] = (WHITE,ROOK)
@@ -90,3 +92,9 @@ class BoardState():
                 s = s + " "
             s = s + "\033[0m\n"
         return s
+    
+    def move(self,m):
+        c = self.get(m.pos1()[0], m.pos1()[1] )
+        self.set(m.pos1()[0], m.pos1()[1], (EMPTY,EMPTY))
+        self.set(m.pos2()[0], m.pos2()[1], (c))
+        return self
