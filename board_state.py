@@ -92,7 +92,7 @@ class BoardState():
                 s = s + " "
             s = s + "\033[0m\n"
         return s
-    
+
     def move(self,m):
         c = self.get(m.pos1()[0], m.pos1()[1] )
         self.set(m.pos1()[0], m.pos1()[1], (EMPTY,EMPTY))
