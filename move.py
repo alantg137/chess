@@ -6,4 +6,8 @@ class Move:
         return self._start
     def pos2(self):
         return self._end
-
+    def __str__(self):
+        return(f"{chr(self.pos1()[0]+96)}{self.pos1()[1]}{chr(self.pos2()[0]+96)}{self.pos2()[1]}")
+    def parse(s):
+        m = Move((ord(s[0])-96,int(s[1])), (ord(s[2])-96,int(s[3])))
+        return m
