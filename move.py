@@ -11,3 +11,5 @@ class Move:
     def parse(s):
         m = Move((ord(s[0])-96,int(s[1])), (ord(s[2])-96,int(s[3])))
         return m
+    def __eq__(self,other):
+        return self.pos1() == other.pos1() and self.pos2() == other.pos2()
